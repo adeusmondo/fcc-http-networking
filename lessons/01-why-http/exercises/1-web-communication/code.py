@@ -20,10 +20,9 @@ def log_items(items):
         print(item.name)
 
 async def get_item_data():
-    
     loop = asyncio.get_event_loop()
     urllib_request_future = loop.run_in_executor(None, urllib.request.Request, 'https://api.boot.dev/v1/courses_rest_api/learn-http/items',
-                                         None, {'X-API-Key': API_KEY, 'Content-Type': 'application/json'}, None, None, 'GET')
+                                                 None, {'X-API-Key': API_KEY, 'Content-Type': 'application/json'}, None, None, 'GET')
     urllib_request = await urllib_request_future
     with urllib.request.urlopen(urllib_request) as f:
         data = json.loads(f.read().decode('utf-8'))
@@ -33,9 +32,14 @@ async def get_item_data():
 
 API_KEY = generate_key()
 
+# Do not touch the lines above
+
 async def main():
     items = await get_item_data()
     log_items()
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+# Don't touch below this line
+
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main())

@@ -32,10 +32,14 @@ async def get_data(url=''):
 
 API_KEY = generate_key()
 
+# Do not touch the lines above
+
 async def main():
-    
     items = await get_data(ITEM_URL)
     log_items(items)
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+# Don't touch below this line
+
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main())

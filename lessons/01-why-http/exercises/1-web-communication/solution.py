@@ -37,5 +37,6 @@ async def main():
     items = await get_item_data()
     log_items(items)
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main())

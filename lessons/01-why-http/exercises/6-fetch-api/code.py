@@ -1,14 +1,3 @@
-# const apiKey = generateKey()
-# const url = getURL()
-# const settings = getSettings()
-
-# const response = fetch(url, settings)
-# const responseData = await response.json()
-
-# logItems(responseData)
-
-# // don't touch below this line
-
 import asyncio
 import json
 import math
@@ -43,6 +32,8 @@ def log_items(items):
 
 API_KEY = generate_key()
 
+# Do not touch the lines above
+
 async def main():
     url = get_url()
     settings = get_settings()
@@ -54,6 +45,9 @@ async def main():
         response_data = json.loads(f.read().decode('utf-8'))
     
     log_items(response_data)
+    
+# Don't touch below this line
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main())
